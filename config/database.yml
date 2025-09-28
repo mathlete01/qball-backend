@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: qwertyball_dev
+  username: khltadmkvnovme
+  password: a773e26c91895ae552c0c25bdd4cf8e8386d28e6a5fdde861a3613b43e5297ac
+  host: ec2-54-157-79-121.compute-1.amazonaws.com
+  port: 5432
+
+test:
+  <<: *default
+  database: qwertyball_test
+  username: khltadmkvnovme
+  password: a773e26c91895ae552c0c25bdd4cf8e8386d28e6a5fdde861a3613b43e5297ac
+  host: ec2-54-157-79-121.compute-1.amazonaws.com
+  port: 5432
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
