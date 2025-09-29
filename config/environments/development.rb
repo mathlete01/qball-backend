@@ -39,13 +39,13 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.
-  config.active_support.deprecation = :log
+  config.active_support.report_deprecations = true
 
   # Raise exceptions for disallowed deprecations.
-  config.active_support.disallowed_deprecation = :raise
+  config.active_support.report_deprecations = true
 
   # Tell Active Support which deprecation messages to disallow.
-  config.active_support.disallowed_deprecation_warnings = []
+  config.active_support.report_deprecations = true
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
@@ -62,7 +62,6 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
-  config.action_view.raise_on_missing_translations = true
 
 
   # Uncomment if you wish to allow Action Cable access from any origin.

@@ -32,7 +32,7 @@ Rails.application.configure do
   config.action_dispatch.show_exceptions = :rescuable
 
   # Disable request forgery protection in test environment.
-  config.action_controller.allow_forgery_protection = false
+  config.action_controller.default_protect_from_forgery = false
 
   # Store uploaded files on the local file system in a temporary directory.
   config.active_storage.service = :test
@@ -48,13 +48,13 @@ Rails.application.configure do
   config.active_support.deprecation = :stderr
 
   # Raise exceptions for disallowed deprecations.
-  config.active_support.disallowed_deprecation = :raise
+  config.active_support.report_deprecations = true
 
   # Tell Active Support which deprecation messages to disallow.
-  config.active_support.disallowed_deprecation_warnings = []
+  config.active_support.report_deprecations = true
 
   # Raises error for missing translations.
-  # config.i18n.raise_on_missing_translations = true
+  config.i18n.raise_on_missing_translations = true
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
@@ -63,7 +63,7 @@ Rails.application.configure do
   config.action_controller.raise_on_missing_callback_actions = true
 
   config.active_support.test_order = :random
-  config.active_record.maintain_test_schema = true
+  
 
   config.active_record.verbose_query_logs = true
 
