@@ -8,7 +8,7 @@
 # config/initializers/cors.rb
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "http://localhost:3000" # your React/Vue/Next.js dev server
+    origins "http://localhost:3001" # your React/Vue/Next.js dev server
     resource "*",
       headers: :any,
       methods: [:get, :post, :put, :patch, :delete, :options, :head]
