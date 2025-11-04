@@ -35,3 +35,6 @@ dists
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore Cursor IDE configuration (contains API tokens)
+/config/.cursor/
