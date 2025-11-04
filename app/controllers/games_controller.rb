@@ -1,8 +1,18 @@
 class GamesController < ApplicationController
-  def index
-    puts('* * * Games: Index endpoint hit')
-    render json: Game.all, include: :player
-  end
+  # def index
+  #   puts('* * * Games: Index endpoint hit')
+  #   render json: Game.all, include: :player
+  # end
+
+def index
+  scope = Game.includes(:player)
+              .order(Arel.sql('score IS NULL, score DESC, games.created_at DESC'))
+              .limit(100)
+
+  expires_now # optional during dev
+  render json: scope.as_json(include: :player)
+end
+
 
   def show
     game = Game.find(params[:id])
