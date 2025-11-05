@@ -8,10 +8,16 @@
 # config/initializers/cors.rb
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "http://localhost:3001" # your React/Vue/Next.js dev server
+    origins [
+      "http://localhost:3001", # local development
+      "https://qwertyball.com", # production domain (if you have a custom domain)
+      "https://www.qwertyball.com", # production domain with www
+      /https:\/\/.*\.github\.io/ # GitHub Pages pattern (covers all *.github.io subdomains)
+    ]
     resource "*",
       headers: :any,
-      methods: [:get, :post, :put, :patch, :delete, :options, :head]
+      methods: [:get, :post, :put, :patch, :delete, :options, :head],
+      credentials: false
   end
 end
 
